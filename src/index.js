@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import store from './store';
+import { Provider } from 'react-redux';
+
+import Spinner from './components/Spinner';
+
+import './index.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Suspense fallback={<Spinner />}>
+          <App />
+        </Suspense>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
