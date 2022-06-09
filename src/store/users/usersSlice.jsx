@@ -44,21 +44,17 @@ export const createUser = createAsyncThunk('users/createUser', async (data) => {
   return result;
 });
 
-export const deleteUser = createAsyncThunk(
-  'users/deleteUser',
-  async (id) => {
-    const response = await fetch(`${base_url}user/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'app-id': api_id,
-      },
-    });
+export const deleteUser = createAsyncThunk('users/deleteUser', async (id) => {
+  const response = await fetch(`${base_url}user/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'app-id': api_id,
+    },
+  });
 
-    const result = await response.json();
-    console.log(result);
-    return result;
-  }
-);
+  const result = await response.json();
+  return result;
+});
 
 const usersSlice = createSlice({
   name: 'users',
@@ -67,9 +63,6 @@ const usersSlice = createSlice({
     setUser(state, action) {
       state.currentUser = action.payload;
     },
-    // deleteUser(state, action) {
-    //   state.users = state.users.filter((user) => user.id !== action.payload.id);
-    // },
   },
   extraReducers: (builder) => {
     builder.addCase(getUsers.fulfilled, (state, action) => {
@@ -79,8 +72,13 @@ const usersSlice = createSlice({
     builder.addCase(getUser.fulfilled, (state, action) => {
       state.currentUser = action.payload;
     });
+    builder.addCase(createUser.fulfilled, (state, action) => {
+      state.users = [...state.users, action.payload];
+      state.totalUsers = state.totalUsers++;
+    });
     builder.addCase(deleteUser.fulfilled, (state, action) => {
       state.users = state.users.filter((user) => user.id !== action.payload.id);
+      state.totalUsers = --state.totalUsers;
     });
   },
 });
