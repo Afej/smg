@@ -12,45 +12,49 @@ const UserTable = ({ users }) => {
   const tableData = users.map((user, index) => {
     return (
       <tr
-        class="bg-white border-b hover:bg-gray-50 rounded"
+        className="bg-white border-b hover:bg-gray-50 rounded"
         key={index}
         onClick={() => fetchUser(user.id)}
       >
-        <td class="w-4 p-4">
-          <div class="flex items-center">
+        <td className="w-4 p-4">
+          <div className="flex items-center">
             <input
               id="checkbox-table-1"
               type="checkbox"
-              class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2 "
+              className="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2 "
             />
-            <label for="checkbox-table-1" class="sr-only">
+            <label htmlFor="checkbox-table-1" className="sr-only">
               checkbox
             </label>
           </div>
         </td>
         <th
           scope="row"
-          class="px-0 py-4 text-[#A8A8A8] font-normal text-sm whitespace-nowrap"
+          className="px-0 py-4 text-[#A8A8A8] font-normal text-sm whitespace-nowrap"
         >
           {user.id.slice(0, 6)}
         </th>
-        <td class="px-4 py-4 text-[#505050] capitalize">{user.title}</td>
-        <td class="px-4 py-4">
-          <div class="flex items-center space-x-4">
-            <img class="w-8 h-8 rounded-full" src={user.picture} alt="user" />
+        <td className="px-4 py-4 text-[#505050] capitalize">{user.title}</td>
+        <td className="px-4 py-4">
+          <div className="flex items-center space-x-4">
+            <img
+              className="w-8 h-8 rounded-full"
+              src={user.picture}
+              alt="user"
+            />
 
-            <div class="flex-1">
-              <p class="text-sm font-medium text-[#9991E5] truncate">
+            <div className="flex-1">
+              <p className="text-sm font-medium text-[#9991E5] truncate">
                 {user.firstName} {user.lastName}
               </p>
-              <p class="text-sm text-[#A8A8A8]">@Adebisi</p>
+              <p className="text-sm text-[#A8A8A8]">@Adebisi</p>
             </div>
           </div>
         </td>
-        <td class="px-4 py-4 truncate max-w-lg">{user.id}</td>
-        <td class="px-4 py-4">Oct 2003</td>
-        <td class="px-4 py-4 text-right">
-          <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+        <td className="px-4 py-4 truncate max-w-lg">{user.id}</td>
+        <td className="px-4 py-4">Oct 2003</td>
+        <td className="px-4 py-4 text-right">
+          <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
             <svg
               width="4"
               height="22"
@@ -70,23 +74,23 @@ const UserTable = ({ users }) => {
 
   return (
     <>
-      <div class="relative overflow-x-auto overflow-y-scroll max-h-[50vh]">
-        <table class="w-full text-sm text-left text-gray-500">
-          <thead class="text-xs text-gray-700 uppercase bg-[#E5E5E5] sticky top-0">
+      <div className="relative overflow-x-auto overflow-y-scroll max-h-[60vh]">
+        <table className="w-full text-sm text-left text-gray-500">
+          <thead className="text-xs text-gray-700 uppercase bg-[#E5E5E5] sticky top-0">
             <tr>
-              <th scope="col" class="p-4">
-                <div class="flex items-center">
+              <th scope="col" className="p-4">
+                <div className="flex items-center">
                   <input
                     id="checkbox-all"
                     type="checkbox"
-                    class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500"
+                    className="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500"
                   />
-                  <label for="checkbox-all" class="sr-only">
+                  <label htmlFor="checkbox-all" className="sr-only">
                     checkbox
                   </label>
                 </div>
               </th>
-              <th scope="col" class="px-0 py-3">
+              <th scope="col" className="px-0 py-3">
                 <span className="flex items-center gap-1">
                   ID
                   <svg
@@ -107,7 +111,7 @@ const UserTable = ({ users }) => {
                   </svg>
                 </span>
               </th>
-              <th scope="col" class="px-4 py-3">
+              <th scope="col" className="px-4 py-3">
                 <span className="flex items-center gap-1">
                   Title
                   <svg
@@ -128,7 +132,7 @@ const UserTable = ({ users }) => {
                   </svg>
                 </span>
               </th>
-              <th scope="col" class="px-4 py-3">
+              <th scope="col" className="px-4 py-3">
                 <span className="flex items-center gap-1">
                   Name
                   <svg
@@ -149,7 +153,7 @@ const UserTable = ({ users }) => {
                   </svg>
                 </span>
               </th>
-              <th scope="col" class="px-4 py-3">
+              <th scope="col" className="px-4 py-3">
                 <span className="flex items-center gap-1">
                   ID
                   <svg
@@ -170,7 +174,7 @@ const UserTable = ({ users }) => {
                   </svg>
                 </span>
               </th>
-              <th scope="col" class="px-4 py-3">
+              <th scope="col" className="px-4 py-3">
                 <span className="flex items-center gap-1">
                   Phone
                   <svg
@@ -191,8 +195,8 @@ const UserTable = ({ users }) => {
                   </svg>
                 </span>
               </th>
-              <th scope="col" class="px-4 py-3">
-                <span class="sr-only">
+              <th scope="col" className="px-4 py-3">
+                <span className="sr-only">
                   <svg
                     width="4"
                     height="22"
@@ -208,7 +212,15 @@ const UserTable = ({ users }) => {
               </th>
             </tr>
           </thead>
-          <tbody>{tableData.length ? tableData : ''}</tbody>
+          <tbody>
+            {tableData.length ? (
+              tableData
+            ) : (
+              <div className="text-red-500 font-bold text-xl py-10">
+                No data available
+              </div>
+            )}
+          </tbody>
         </table>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import TotalCard from '../components/cards/TotalCard';
 import PreviewCard from '../components/cards/PreviewCard';
@@ -65,17 +65,28 @@ const Index = () => {
   const emptyPost = isEmpty(currentPost);
 
   const getData = async () => {
-    setLoading(true);
-    await dispatch(getUsers());
-    await dispatch(getPosts());
-    await dispatch(getComments());
-    await dispatch(getTags());
-    setLoading(false);
+    try {
+      setLoading(true);
+      await Promise.all([
+        dispatch(getUsers()).unwrap(),
+        dispatch(getPosts()).unwrap(),
+        dispatch(getComments()).unwrap(),
+        dispatch(getTags()).unwrap(),
+      ]);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      toast.error(error.message);
+      // toast.error('Failed to get data');
+      // console.log({ error });
+    }
   };
 
   useEffect(() => {
-    dispatch(setUser({}));
-    dispatch(setPost({}));
+    if (!emptyUser || !emptyPost) {
+      dispatch(setUser({}));
+      dispatch(setPost({}));
+    }
 
     if (users.length && posts.length) {
       return;
@@ -90,14 +101,14 @@ const Index = () => {
   }
 
   return (
-    <div className="bg-[#E5E5E5]">
+    <div className="bg-[#E5E5E5] h-screen">
       <div className="py-10 w-[85%] mx-auto">
         {/* top section */}
         <section className="my-5">
-          <div class="relative w-full py-12">
-            <div class="grid w-full grid-cols-1 gap-5 mx-auto lg:grid-cols-3">
+          <div className="relative w-full py-12">
+            <div className="grid w-full grid-cols-1 gap-5 mx-auto lg:grid-cols-3">
               {/* cards container */}
-              <div class="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <TotalCard title="users" value={totalUsers} />
                 <TotalCard title="posts" value={totalPosts} />
                 <TotalCard title="comments" value={totalComments} />
@@ -105,7 +116,7 @@ const Index = () => {
               </div>
 
               {/* tags container */}
-              <div class="p-5 col-span-2 bg-white shadow-xl rounded-md">
+              <div className="p-5 col-span-2 bg-white shadow-xl rounded-md">
                 <p className="text-md font-bold text-[#505050] capitalize">
                   Popular Tags
                 </p>
@@ -139,27 +150,27 @@ const Index = () => {
 
         {/* bottom section */}
         <section className="my-5">
-          <div class="relative w-full py-12">
-            <div class="grid w-full grid-cols-1 gap-5 mx-auto lg:grid-cols-3">
+          <div className="relative w-full py-12">
+            <div className="grid w-full grid-cols-1 gap-5 mx-auto lg:grid-cols-3">
               <div className="col-span-2">
                 {/* Navigation tabs */}
                 <>
-                  <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
-                    <ul class="flex flex-wrap -mb-px">
-                      <li class="mr-2">
+                  <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
+                    <ul className="flex flex-wrap -mb-px">
+                      <li className="mr-2">
                         <button
                           onClick={() => selectTab('users')}
-                          class={`inline-block p-2 rounded-t-lg border-b-4 border-transparent hover:text-gray-500 text-[#505050] font-bold text-base ${
+                          className={`inline-block p-2 rounded-t-lg border-b-4 border-transparent hover:text-gray-500 text-[#505050] font-bold text-base ${
                             activeTab.users && 'border-purple-600 '
                           }`}
                         >
                           Recent Users
                         </button>
                       </li>
-                      <li class="mr-2">
+                      <li className="mr-2">
                         <button
                           onClick={() => selectTab('posts')}
-                          class={`inline-block p-2 rounded-t-lg border-b-4 border-transparent hover:text-gray-500 text-[#505050] font-bold text-base ${
+                          className={`inline-block p-2 rounded-t-lg border-b-4 border-transparent hover:text-gray-500 text-[#505050] font-bold text-base ${
                             activeTab.posts && 'border-purple-600 '
                           }`}
                         >

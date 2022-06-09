@@ -9,26 +9,25 @@ const Header = () => {
   const setLocationPath = () => {
     if (pathname === '/') {
       setPath('');
-      // console.log({ path });
     } else {
       setPath(pathname.slice(1));
-      // console.log({ path });
     }
   };
 
   useEffect(() => {
     setLocationPath();
+    // eslint-disable-next-line
   }, [path, location]);
 
   return (
-    <div class="navbar bg-white sticky top-0 z-30 border-b-2 border-[#C4C4C4]shadow-lg">
-      <div class="flex-1 pl-5">
-        <p class="text-md font-bold ml-5 capitalize">
+    <div className="navbar bg-white sticky top-0 z-30 border-b-2 border-[#C4C4C4]shadow-lg">
+      <div className="flex-1 pl-5">
+        <p className="text-md font-bold ml-5 capitalize">
           Dashboard {path !== '' ? `> ${path}` : ''}
         </p>
       </div>
 
-      <div class="flex-none gap-2 mr-2">
+      <div className="flex-none gap-2 mr-2">
         <div>
           <svg
             width="24"
@@ -43,8 +42,8 @@ const Header = () => {
             />
           </svg>
         </div>
-        <button class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
+        <button className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
             <img
               src="https://api.lorem.space/image/face?hash=33791"
               alt="user"

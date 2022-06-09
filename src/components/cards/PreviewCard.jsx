@@ -15,16 +15,16 @@ const PreviewCard = ({ type }) => {
             <path
               d="M53.3333 56V50.6667C53.3333 47.8377 52.2095 45.1246 50.2091 43.1242C48.2087 41.1238 45.4956 40 42.6667 40H21.3333C18.5043 40 15.7912 41.1238 13.7909 43.1242C11.7905 45.1246 10.6667 47.8377 10.6667 50.6667V56"
               stroke="#607485"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M32 29.3333C37.891 29.3333 42.6667 24.5577 42.6667 18.6667C42.6667 12.7756 37.891 8 32 8C26.109 8 21.3333 12.7756 21.3333 18.6667C21.3333 24.5577 26.109 29.3333 32 29.3333Z"
               stroke="#607485"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <p className="text-[#051A2E] text-xs font-normal mt-6">

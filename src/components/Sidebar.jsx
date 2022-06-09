@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 const Sidebar = () => {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <aside className="z-30 flex-shrink-0 w-64 bg-[#9991E5] lg:block flex overflow-hidden text-white rounded-lg">
       <div className="hidden md:flex md:flex-shrink-0">
@@ -22,7 +19,7 @@ const Sidebar = () => {
                   <circle cx="25" cy="25" r="25" fill="#C4C4C4" />
                 </svg>
               </div>
-              <div class="Name">
+              <div>
                 <p className="text-lg font-bold p-0">User Groove</p>
                 <p className="text-xs">by Joshua Afekuro</p>
               </div>

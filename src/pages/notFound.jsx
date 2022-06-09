@@ -7,7 +7,7 @@ const notFound = () => {
       <svg
         fill="currentColor"
         viewBox="0 0 20 20"
-        class="w-12 h-12 mt-8 text-purple-700"
+        className="w-12 h-12 mt-8 text-purple-700"
         aria-hidden="true"
       >
         <path

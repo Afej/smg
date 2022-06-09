@@ -5,7 +5,7 @@ const spinner = () => {
     <div className="w-full flex justify-center items-center h-screen bg-gray-100">
       <svg
         role="status"
-        class="inline w-20 h-48 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-purple-500"
+        className="inline w-20 h-48 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-purple-500"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

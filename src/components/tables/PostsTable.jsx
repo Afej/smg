@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Pagination } from 'flowbite-react';
 
 import { getPost } from '../../store/posts/postsSlice';
 
@@ -20,55 +21,59 @@ const PostsTable = ({ posts }) => {
     }
   }, [pathname]);
 
+  const onPageChange = () => {
+    console.log('moving');
+  };
+
   const tableData = posts.map((post, index) => {
     return (
       <tr
-        class="bg-white border-b hover:bg-gray-50 rounded"
+        className="bg-white border-b hover:bg-gray-50 rounded"
         key={index}
         onClick={() => {
           !showData && fetchPost(post.id);
         }}
       >
-        <td class="w-4 p-4">
-          <div class="flex items-center">
+        <td className="w-4 p-4">
+          <div className="flex items-center">
             <input
               id="checkbox-table-1"
               type="checkbox"
-              class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2 "
+              className="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2 "
             />
-            <label for="checkbox-table-1" class="sr-only">
+            <label htmlFor="checkbox-table-1" className="sr-only">
               checkbox
             </label>
           </div>
         </td>
         <th
           scope="row"
-          class="px-0 py-4 text-[#A8A8A8] font-normal text-sm whitespace-nowrap truncate"
+          className="px-0 py-4 text-[#A8A8A8] font-normal text-sm whitespace-nowrap truncate"
         >
           {post.id.slice(0, 6)}
         </th>
-        <td class="px-6 py-4">
-          <div class="flex items-center space-x-4">
+        <td className="px-6 py-4">
+          <div className="flex items-center space-x-4">
             <img
-              class="w-8 h-8 rounded-full"
+              className="w-8 h-8 rounded-full"
               src={post.owner.picture}
               alt="user"
             />
 
-            <div class="flex-1">
-              <p class="text-sm font-medium text-[#9991E5] truncate">
+            <div className="flex-1">
+              <p className="text-sm font-medium text-[#9991E5] truncate">
                 {post.owner.firstName} {post.owner.lastName}
               </p>
-              <p class="text-sm text-[#A8A8A8]">@Adebisi</p>
+              <p className="text-sm text-[#A8A8A8]">@Adebisi</p>
             </div>
           </div>
         </td>
         {showData && (
-          <td class="px-6 py-4 text-[#505050] truncate">{post.text}</td>
+          <td className="px-6 py-4 text-[#505050] truncate">{post.text}</td>
         )}
         {showData && (
-          <td class="px-6 py-4 text-[#505050]">
-            <div class="flex gap-1 items-center">
+          <td className="px-6 py-4 text-[#505050]">
+            <div className="flex gap-1 items-center">
               <svg
                 width="18"
                 height="18"
@@ -89,9 +94,9 @@ const PostsTable = ({ posts }) => {
           </td>
         )}
 
-        <td class="px-6 py-4">Oct 20, 2003</td>
-        <td class="px-6 py-4 text-right">
-          <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+        <td className="px-6 py-4">Oct 20, 2003</td>
+        <td className="px-6 py-4 text-right">
+          <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
             <svg
               width="4"
               height="22"
@@ -111,23 +116,23 @@ const PostsTable = ({ posts }) => {
 
   return (
     <>
-      <div class="relative overflow-x-auto overflow-y-scroll max-h-[50vh]">
-        <table class="w-full text-sm text-left text-gray-500">
-          <thead class="text-xs text-gray-700 uppercase bg-[#E5E5E5] sticky top-0">
+      <div className="relative overflow-x-auto overflow-y-scroll max-h-[60vh]">
+        <table className="w-full text-sm text-left text-gray-500">
+          <thead className="text-xs text-gray-700 uppercase bg-[#E5E5E5] sticky top-0">
             <tr>
-              <th scope="col" class="p-4">
-                <div class="flex items-center">
+              <th scope="col" className="p-4">
+                <div className="flex items-center">
                   <input
                     id="checkbox-all"
                     type="checkbox"
-                    class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500"
+                    className="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500"
                   />
-                  <label for="checkbox-all" class="sr-only">
+                  <label htmlFor="checkbox-all" className="sr-only">
                     checkbox
                   </label>
                 </div>
               </th>
-              <th scope="col" class="px-0 py-3">
+              <th scope="col" className="px-0 py-3">
                 <span className="flex items-center gap-1">
                   ID
                   <svg
@@ -148,7 +153,7 @@ const PostsTable = ({ posts }) => {
                   </svg>
                 </span>
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 <span className="flex items-center gap-1">
                   Owner
                   <svg
@@ -170,7 +175,7 @@ const PostsTable = ({ posts }) => {
                 </span>
               </th>
               {showData && (
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   <span className="flex items-center gap-1">
                     Text
                     <svg
@@ -193,7 +198,7 @@ const PostsTable = ({ posts }) => {
                 </th>
               )}
               {showData && (
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   <span className="flex items-center gap-1">
                     Likes
                     <svg
@@ -216,7 +221,7 @@ const PostsTable = ({ posts }) => {
                 </th>
               )}
 
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 <span className="flex items-center gap-1 text-xs">
                   PUBLISHED DATE
                   <svg
@@ -237,8 +242,8 @@ const PostsTable = ({ posts }) => {
                   </svg>
                 </span>
               </th>
-              <th scope="col" class="px-6 py-3">
-                <span class="sr-only">
+              <th scope="col" className="px-6 py-3">
+                <span className="sr-only">
                   <svg
                     width="4"
                     height="22"
@@ -254,9 +259,27 @@ const PostsTable = ({ posts }) => {
               </th>
             </tr>
           </thead>
-          <tbody>{tableData.length ? tableData : ''}</tbody>
+          <tbody>
+            {tableData.length ? (
+              tableData
+            ) : (
+              <div className="text-red-500 font-bold text-xl py-10">
+                No data available
+              </div>
+            )}
+          </tbody>
         </table>
       </div>
+
+      {showData && (
+        <div className="my-10">
+          <Pagination
+            currentPage={1}
+            totalPages={100}
+            onPageChange={onPageChange}
+          />
+        </div>
+      )}
     </>
   );
 };

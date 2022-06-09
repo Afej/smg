@@ -1,11 +1,12 @@
 import React from 'react';
 
 const Post = ({ post }) => {
-  const tags = post.tags.map((tag) => {
+  const tags = post.tags.map((tag, index) => {
     return (
       <button
         type="button"
-        class="p-1.5 capitalize text-sm font-medium text-[#607485] focus:outline-none bg-[#FAFCFE] rounded-full border border-[#4799EB]hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
+        className="p-1.5 capitalize text-sm font-medium text-[#607485] focus:outline-none bg-[#FAFCFE] rounded-full border border-[#4799EB]hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
+        key={index}
       >
         {tag}
       </button>
@@ -14,23 +15,23 @@ const Post = ({ post }) => {
 
   return (
     <div>
-      <div class="p- max-w-md bg-white rounded-lg border shadow-md sm:p-5 dark:bg-gray-800 dark:border-gray-700">
-        <div class="w-full h-full pb-3">
+      <div className="p- max-w-md bg-white rounded-lg border shadow-md sm:p-5 dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full h-full pb-3">
           <img
-            class="w-full h-[120px] rounded-md object-cover bg-contain bg-center"
+            className="w-full h-[120px] rounded-md object-cover bg-contain bg-center"
             src={post.image}
             alt="user"
           />
         </div>
 
-        <div class="flow-root">
-          <ul class="">
-            <li class="py-2 sm:py-1.5">
+        <div className="flow-root">
+          <ul className="">
+            <li className="py-2 sm:py-1.5">
               <div>
-                <p class="capitalize text-sm font-semibold text-[#051A2E] truncate">
+                <p className="capitalize text-sm font-semibold text-[#051A2E] truncate">
                   {post.text}
                 </p>
-                <p class="text-sm text-[#DD3C3C] font-normal flex items-center gap-2 my-1">
+                <p className="text-sm text-[#DD3C3C] font-normal flex items-center gap-2 my-1">
                   <svg
                     width="11"
                     height="10"
@@ -48,39 +49,39 @@ const Post = ({ post }) => {
               </div>
             </li>
 
-            <li class="py-2 sm:py-1.5">
-              <div class="flex flex-col gap-2">
-                <p class="uppercase text-xs font-semibold text-[#AFC2D4] truncate">
+            <li className="py-2 sm:py-1.5">
+              <div className="flex flex-col gap-2">
+                <p className="uppercase text-xs font-semibold text-[#AFC2D4] truncate">
                   tags
                 </p>
-                <div class="flex items-center mb-2 gap-2 justify-items-start">
+                <div className="flex items-center mb-2 gap-2 justify-items-start">
                   {tags}
                 </div>
               </div>
             </li>
 
-            <li class="py-2 sm:py-1.5 border-gray-200 border-y">
-              <p class="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
+            <li className="py-2 sm:py-1.5 border-gray-200 border-y">
+              <p className="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
                 OWNER
               </p>
             </li>
-            <li class="py-2 sm:py-1.5 mt-2 flex items-start gap-2">
+            <li className="py-2 sm:py-1.5 mt-2 flex items-start gap-2">
               <img
-                class="w-10 h-10 rounded-xl"
+                className="w-10 h-10 rounded-xl"
                 src={post.owner.picture}
                 alt="owner"
               />
 
-              <p class="text-sm text-[#051A2E] font-normal">
+              <p className="text-sm text-[#051A2E] font-normal">
                 {post.owner.firstName} {post.owner.lastName}
               </p>
             </li>
-            <li class="py-2 sm:py-1.5">
+            <li className="py-2 sm:py-1.5">
               <div>
-                <p class="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
+                <p className="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
                   Full name
                 </p>
-                <p class="text-sm text-[#051A2E] font-normal capitalize">
+                <p className="text-sm text-[#051A2E] font-normal capitalize">
                   {post.owner.title} {post.owner.firstName}{' '}
                   {post.owner.lastName}
                 </p>
@@ -88,12 +89,12 @@ const Post = ({ post }) => {
             </li>
             {post.owner.email && (
               <>
-                <li class="py-2 sm:py-1.5">
+                <li className="py-2 sm:py-1.5">
                   <div>
-                    <p class="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
+                    <p className="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
                       Email Address
                     </p>
-                    <p class="text-sm text-[#051A2E] font-normal">
+                    <p className="text-sm text-[#051A2E] font-normal">
                       {post.owner.email}
                     </p>
                   </div>
@@ -102,12 +103,12 @@ const Post = ({ post }) => {
             )}
             {post.owner.phone && (
               <>
-                <li class="py-2 sm:py-1.5">
+                <li className="py-2 sm:py-1.5">
                   <div>
-                    <p class="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
+                    <p className="uppercase text-sm font-semibold text-[#AFC2D4] truncate">
                       Phone Number
                     </p>
-                    <p class="text-sm text-[#051A2E] font-normal">
+                    <p className="text-sm text-[#051A2E] font-normal">
                       {post.owner.phone}
                     </p>
                   </div>
