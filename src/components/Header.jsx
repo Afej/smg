@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 const Header = () => {
   const location = useLocation();
@@ -20,7 +20,40 @@ const Header = () => {
   }, [path, location]);
 
   return (
-    <div className="navbar bg-white sticky top-0 z-30 border-b-2 border-[#C4C4C4]shadow-lg">
+    <div className="navbar bg-white sticky top-0 z-30 border-b-2 border-[#C4C4C4] shadow-lg">
+      <div class="lg:hidden dropdown">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h7"
+            />
+          </svg>
+        </label>
+        <ul
+          tabindex="0"
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#9991E5] text-white rounded-box w-52"
+        >
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/search">Search</Link>
+          </li>
+          <li>
+            <Link to="/adduser">Add User</Link>
+          </li>
+        </ul>
+      </div>
+
       <div className="flex-1 pl-5">
         <p className="text-md font-bold ml-5 capitalize">
           Dashboard {path !== '' ? `> ${path}` : ''}

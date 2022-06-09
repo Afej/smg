@@ -61,7 +61,7 @@ const AddUser = () => {
         <div className="flex justify-center py-10 h-screen bg-[#E5E5E5]">
           <div className="relative p-4 w-full lg:max-w-[50%] h-full px-5">
             <div className="relative bg-white rounded-lg shadow overflow-y-scroll max-h-[80vh]">
-              <div className="py-6 px-6 lg:px-8">
+              <div className="py-6 px-6 lg:px-8 w-full">
                 <div className="mb-4">
                   <h3 className="text-xl font-medium text-gray-900">
                     Add User

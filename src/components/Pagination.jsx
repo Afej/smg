@@ -2,7 +2,7 @@ import React from 'react';
 
 const Pagination = () => {
   return (
-    <nav aria-label="Page navigation example">
+    <nav>
       <ul className="inline-flex -space-x-px p-5 bg-white rounded-xl">
         <li className="px-2">
           <button

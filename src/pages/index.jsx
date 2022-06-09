@@ -102,13 +102,13 @@ const Index = () => {
 
   return (
     <div className="bg-[#E5E5E5] h-screen">
-      <div className="py-10 w-[85%] mx-auto">
+      <div className="lg:py-10 lg:px-0 py-0 lg:w-[85%] px-6 w-full mx-auto lg:bg-none bg-[#E5E5E5]">
         {/* top section */}
         <section className="my-5">
-          <div className="relative w-full py-12">
-            <div className="grid w-full grid-cols-1 gap-5 mx-auto lg:grid-cols-3">
+          <div className="relative w-full lg:py-12 py-8">
+            <div className="grid w-full grid-cols-1 lg:gap-5 gap-y-5 mx-auto lg:grid-cols-3">
               {/* cards container */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 w-full">
                 <TotalCard title="users" value={totalUsers} />
                 <TotalCard title="posts" value={totalPosts} />
                 <TotalCard title="comments" value={totalComments} />
@@ -121,7 +121,7 @@ const Index = () => {
                   Popular Tags
                 </p>
 
-                <div className="grid grid-cols-2 gap-y-2 gap-x-5 mt-2.5">
+                <div className="grid lg:grid-cols-2 gap-y-2 gap-x-5 mt-2.5">
                   <Tag title="Dog" value="345" />
                   <Tag title="Water" value="20" />
                   <Tag title="Nature" value="18" />
@@ -132,7 +132,7 @@ const Index = () => {
             </div>
 
             {/* option button */}
-            <button className="absolute top-1 right-0 cursor-pointer">
+            <button className="absolute top-1 right-0 cursor-pointer hidden lg:block">
               <svg
                 width="30"
                 height="8"

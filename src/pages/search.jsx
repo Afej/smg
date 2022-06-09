@@ -51,7 +51,7 @@ const Search = () => {
     <div className="py-5 h-screen">
       <div className="pb-10 w-[85%] mx-auto">
         {/* search  form */}
-        <form className="flex items-center w-[40%]">
+        <form className="flex items-center lg:w-[40%] w-full">
           <label htmlFor="simple-search" className="sr-only">
             Search
           </label>
@@ -83,167 +83,176 @@ const Search = () => {
 
       <section className="bg-[#E5E5E5] pt-10 h-full">
         <div className="w-[85%] mx-auto">
-          <div className="border-y border-[#D0D0D0] flex justify-between items-center py-5 mb-10">
-            <svg
-              width="168"
-              height="30"
-              viewBox="0 0 168 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="0.25"
-                y="2.25"
-                width="25.5"
-                height="25.5"
-                rx="1.75"
-                stroke="#E0E0E0"
-                strokeWidth="0.5"
-              />
-              <circle cx="13" cy="15" r="6" fill="#E0E0E0" />
-              <rect
-                x="35.25"
-                y="2.25"
-                width="25.5"
-                height="25.5"
-                rx="1.75"
-                stroke="#E0E0E0"
-                strokeWidth="0.5"
-              />
-              <circle cx="48" cy="15" r="6" fill="#E8E8E8" />
-              <g filter="url(#filter0_d_1_1736)">
-                <rect x="70" y="2" width="26" height="26" rx="2" fill="white" />
-              </g>
-              <circle cx="83" cy="15" r="6" fill="#9991E5" />
-              <g filter="url(#filter1_d_1_1736)">
+          <div className="border-y border-[#D0D0D0] flex justify-between items-center py-5 mb-10 w-full">
+            <div className="lg:block hidden">
+              <svg
+                width="168"
+                height="30"
+                viewBox="0 0 168 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <rect
-                  x="105"
-                  y="2"
-                  width="26"
-                  height="26"
-                  rx="2"
-                  fill="white"
+                  x="0.25"
+                  y="2.25"
+                  width="25.5"
+                  height="25.5"
+                  rx="1.75"
+                  stroke="#E0E0E0"
+                  strokeWidth="0.5"
                 />
-              </g>
-              <circle cx="118" cy="15" r="6" fill="#9991E5" />
-              <g filter="url(#filter2_d_1_1736)">
+                <circle cx="13" cy="15" r="6" fill="#E0E0E0" />
                 <rect
-                  x="140"
-                  y="2"
-                  width="26"
-                  height="26"
-                  rx="2"
-                  fill="white"
+                  x="35.25"
+                  y="2.25"
+                  width="25.5"
+                  height="25.5"
+                  rx="1.75"
+                  stroke="#E0E0E0"
+                  strokeWidth="0.5"
                 />
-              </g>
-              <circle cx="153" cy="15" r="6" fill="#9991E5" />
-              <defs>
-                <filter
-                  id="filter0_d_1_1736"
-                  x="68"
-                  y="0"
-                  width="30"
-                  height="30"
-                  filterUnits="userSpaceOnUse"
-                  colorInterpolationFilters="sRGB"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
+                <circle cx="48" cy="15" r="6" fill="#E8E8E8" />
+                <g filter="url(#filter0_d_1_1736)">
+                  <rect
+                    x="70"
+                    y="2"
+                    width="26"
+                    height="26"
+                    rx="2"
+                    fill="white"
                   />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="1" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                </g>
+                <circle cx="83" cy="15" r="6" fill="#9991E5" />
+                <g filter="url(#filter1_d_1_1736)">
+                  <rect
+                    x="105"
+                    y="2"
+                    width="26"
+                    height="26"
+                    rx="2"
+                    fill="white"
                   />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_1_1736"
+                </g>
+                <circle cx="118" cy="15" r="6" fill="#9991E5" />
+                <g filter="url(#filter2_d_1_1736)">
+                  <rect
+                    x="140"
+                    y="2"
+                    width="26"
+                    height="26"
+                    rx="2"
+                    fill="white"
                   />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_1_1736"
-                    result="shape"
-                  />
-                </filter>
-                <filter
-                  id="filter1_d_1_1736"
-                  x="103"
-                  y="0"
-                  width="30"
-                  height="30"
-                  filterUnits="userSpaceOnUse"
-                  colorInterpolationFilters="sRGB"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="1" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_1_1736"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_1_1736"
-                    result="shape"
-                  />
-                </filter>
-                <filter
-                  id="filter2_d_1_1736"
-                  x="138"
-                  y="0"
-                  width="30"
-                  height="30"
-                  filterUnits="userSpaceOnUse"
-                  colorInterpolationFilters="sRGB"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="1" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_1_1736"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_1_1736"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
+                </g>
+                <circle cx="153" cy="15" r="6" fill="#9991E5" />
+                <defs>
+                  <filter
+                    id="filter0_d_1_1736"
+                    x="68"
+                    y="0"
+                    width="30"
+                    height="30"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                  >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_1_1736"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_1_1736"
+                      result="shape"
+                    />
+                  </filter>
+                  <filter
+                    id="filter1_d_1_1736"
+                    x="103"
+                    y="0"
+                    width="30"
+                    height="30"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                  >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_1_1736"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_1_1736"
+                      result="shape"
+                    />
+                  </filter>
+                  <filter
+                    id="filter2_d_1_1736"
+                    x="138"
+                    y="0"
+                    width="30"
+                    height="30"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                  >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_1_1736"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_1_1736"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+            </div>
 
-            <div className="flex justify-between w-[30%]">
+            <div className="flex justify-between lg:w-[30%] w-full">
               <p className="text-gray-900 font-bold text-base">
                 1 - {posts.length} of {totalPosts} records
               </p>
