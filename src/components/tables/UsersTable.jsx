@@ -8,8 +8,7 @@ const UserTable = ({ users }) => {
   const dispatch = useDispatch();
   const fetchUser = async (userId) => {
     try {
-      const res = await dispatch(getUser(userId)).unwrap();
-      console.log(res);
+      await dispatch(getUser(userId)).unwrap();
     } catch (error) {
       console.log(error);
       toast.error(error.message);

@@ -100,7 +100,7 @@ const Index = () => {
 
   return (
     <div className="bg-[#E5E5E5] h-screen">
-      <div className="lg:py-10 lg:px-0 py-0 lg:w-[85%] px-6 w-full mx-auto lg:bg-none bg-[#E5E5E5]">
+      <div className="lg:py-10 lg:px-0 py-0 lg:w-[85%] px-6 w-full mx-auto bg-[#E5E5E5]">
         {/* top section */}
         <section className="my-5">
           <div className="relative w-full lg:py-12 py-8">

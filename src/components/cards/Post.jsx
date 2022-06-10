@@ -15,7 +15,7 @@ const Post = ({ post }) => {
 
   return (
     <div>
-      <div className="p- max-w-md bg-white rounded-lg border shadow-md sm:p-5 dark:bg-gray-800 dark:border-gray-700">
+      <div className="p-4 max-w-md bg-white rounded-lg border shadow-md">
         <div className="w-full h-full pb-3">
           <img
             className="w-full h-[120px] rounded-md object-cover bg-contain bg-center"

@@ -39,15 +39,17 @@ const AddUser = () => {
     dateOfBirth: Yup.string().required('Required'),
   });
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values, { resetForm }) => {
     try {
       setLoading(true);
       const res = await dispatch(createUser(values)).unwrap();
       console.log('res', res);
       toast.success('User created successfully');
+      resetForm(initialValues);
       setLoading(false);
     } catch (error) {
       // toast.error(error.message);
+      resetForm(initialValues);
       toast.error('Failed to create user');
       setLoading(false);
     }

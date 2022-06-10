@@ -73,7 +73,7 @@ const usersSlice = createSlice({
       state.currentUser = action.payload;
     });
     builder.addCase(createUser.fulfilled, (state, action) => {
-      state.users = [...state.users, action.payload];
+      state.users = [...state.users, action.payload.data];
       state.totalUsers = state.totalUsers++;
     });
     builder.addCase(deleteUser.fulfilled, (state, action) => {

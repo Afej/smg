@@ -10,14 +10,23 @@ import { getPosts } from '../store/posts/postsSlice';
 
 const Search = () => {
   const dispatch = useDispatch();
+  const [dataLimit, setDataLimit] = useState(20);
 
   const [loading, setLoading] = useState(false);
+  // const [currentPage, setCurrentPage] = useState({
+  //   startIndex: 1,
+  //   endIndex: dataLimit,
+  // });
 
   const { posts, totalPosts } = useSelector((state) => state.posts);
 
   const getPageData = async (page) => {
     try {
       await dispatch(getPosts(page)).unwrap();
+      // setCurrentPage((prev) => {
+      //   prev.startIndex+20,
+      //   prev.endIndex+20,
+      // });
     } catch (error) {
       toast.error(error.message);
     }
@@ -281,7 +290,7 @@ const Search = () => {
             <Pagination
               data={posts}
               totalData={totalPosts}
-              dataLimit={posts.length}
+              dataLimit={dataLimit}
               pageLimit={3}
               getNewData={(page) => getPageData(page)}
             />
