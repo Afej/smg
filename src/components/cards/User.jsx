@@ -7,8 +7,12 @@ const User = ({ user }) => {
   const dispatch = useDispatch();
 
   const removeUser = async (id) => {
-    await dispatch(deleteUser(id));
-    toast('User deleted successfully');
+    try {
+      await dispatch(deleteUser(id)).unwrap();
+      toast.success('User deleted successfully');
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -18,7 +22,9 @@ const User = ({ user }) => {
           <div className="w-full h-full">
             <img
               className="w-[100%] h-[100%] rounded-sm"
-              src={user.picture}
+              src={
+                user.picture || require('../../assets/images/female-user.png')
+              }
               alt="user"
             />
           </div>
@@ -62,8 +68,7 @@ const User = ({ user }) => {
                     Date of Birth
                   </p>
                   <p className="text-sm text-[#051A2E] font-normal">
-                    {/* 30 - Apr - 1996 */}
-                    {user.dateOfBirth}
+                    {user.dateOfBirth.split('T')[0]}
                   </p>
                 </div>
               </div>
@@ -129,8 +134,7 @@ const User = ({ user }) => {
                       registered
                     </p>
                     <p className="text-sm text-[#051A2E] font-normal">
-                      {/* 21 - Jun - 2021 */}
-                      {user.registerDate}
+                      {user.registerDate.split('T')[0]}
                     </p>
                   </div>
                   <div>
@@ -138,8 +142,7 @@ const User = ({ user }) => {
                       last updated
                     </p>
                     <p className="text-sm text-[#051A2E] font-normal">
-                      {/* 21 - Jun - 2021 */}
-                      {user.updatedDate}
+                      {user.updatedDate.split('T')[0]}
                     </p>
                   </div>
                 </div>

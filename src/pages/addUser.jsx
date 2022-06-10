@@ -44,6 +44,8 @@ const AddUser = () => {
       setLoading(true);
       const res = await dispatch(createUser(values)).unwrap();
       console.log('res', res);
+      toast.success('User created successfully');
+      setLoading(false);
     } catch (error) {
       // toast.error(error.message);
       toast.error('Failed to create user');

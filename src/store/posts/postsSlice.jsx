@@ -9,8 +9,8 @@ const initialState = {
   totalPosts: 0,
 };
 
-export const getPosts = createAsyncThunk('posts/getPosts', async () => {
-  const response = await fetch(`${base_url}post`, {
+export const getPosts = createAsyncThunk('posts/getPosts', async (page) => {
+  const response = await fetch(`${base_url}post?page=${page || 1}`, {
     headers: {
       'app-id': api_id,
     },
@@ -52,4 +52,3 @@ const postsSlice = createSlice({
 
 export default postsSlice.reducer;
 export const { setPost } = postsSlice.actions;
-

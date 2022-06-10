@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import PostsTable from '../components/tables/PostsTable';
-// import { Pagination } from 'flowbite-react';
 import Spinner from '../components/Spinner';
+import Pagination from '../components/Pagination';
 
 import { getPosts } from '../store/posts/postsSlice';
 
@@ -14,6 +14,14 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
 
   const { posts, totalPosts } = useSelector((state) => state.posts);
+
+  const getPageData = async (page) => {
+    try {
+      await dispatch(getPosts(page)).unwrap();
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   const getData = async () => {
     try {
@@ -25,8 +33,6 @@ const Search = () => {
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
-      // toast.error('Failed to get data');
-      // console.log({ error });
     }
   };
 
@@ -36,12 +42,9 @@ const Search = () => {
     }
 
     getData();
+
     // eslint-disable-next-line
   }, [posts.length]);
-
-  // const onPageChange = () => {
-
-  // }
 
   if (loading) {
     return <Spinner />;
@@ -274,13 +277,18 @@ const Search = () => {
 
           <PostsTable posts={posts} />
 
-          {/* <div className="my-10">
-            <Pagination />
-          </div> */}
+          <div className="my-10">
+            <Pagination
+              data={posts}
+              totalData={totalPosts}
+              dataLimit={posts.length}
+              pageLimit={5}
+              getNewData={(page) => getPageData(page)}
+            />
+          </div>
         </div>
       </section>
     </div>
-    // </div>
   );
 };
 
