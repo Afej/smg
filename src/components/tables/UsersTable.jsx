@@ -1,12 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { getUser } from '../../store/users/usersSlice';
 
 const UserTable = ({ users }) => {
   const dispatch = useDispatch();
-  const fetchUser = (userId) => {
-    dispatch(getUser(userId));
+  const fetchUser = async (userId) => {
+    try {
+      const res = await dispatch(getUser(userId)).unwrap();
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   const tableData = users.map((user, index) => {

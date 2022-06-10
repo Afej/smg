@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Pagination } from 'flowbite-react';
 
 import { getPost } from '../../store/posts/postsSlice';
+import { toast } from 'react-toastify';
 
 const PostsTable = ({ posts }) => {
   const location = useLocation();
@@ -11,8 +11,14 @@ const PostsTable = ({ posts }) => {
   const [showData, setShowData] = useState(false);
 
   const dispatch = useDispatch();
-  const fetchPost = (postId) => {
-    dispatch(getPost(postId));
+  const fetchPost = async (postId) => {
+    try {
+      const res = await dispatch(getPost(postId)).unwrap();
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {
@@ -20,10 +26,6 @@ const PostsTable = ({ posts }) => {
       setShowData(true);
     }
   }, [pathname]);
-
-  const onPageChange = () => {
-    console.log('moving');
-  };
 
   const tableData = posts.map((post, index) => {
     return (
@@ -270,16 +272,6 @@ const PostsTable = ({ posts }) => {
           </tbody>
         </table>
       </div>
-
-      {showData && (
-        <div className="my-10">
-          <Pagination
-            currentPage={1}
-            totalPages={100}
-            onPageChange={onPageChange}
-          />
-        </div>
-      )}
     </>
   );
 };

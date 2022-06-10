@@ -77,8 +77,6 @@ const Index = () => {
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
-      // toast.error('Failed to get data');
-      // console.log({ error });
     }
   };
 
@@ -94,7 +92,7 @@ const Index = () => {
 
     getData();
     // eslint-disable-next-line
-  }, [users.length, posts.length]);
+  }, []);
 
   if (loading) {
     return <Spinner />;
